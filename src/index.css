@@ -40,3 +40,126 @@ img {
 * {
   box-sizing: border-box;
 }
+
+/* Force iframe responsiveness with CSS media queries */
+@media (max-width: 480px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .text-3xl {
+    font-size: 1.125rem !important;
+  }
+  .text-2xl {
+    font-size: 1rem !important;
+  }
+  .text-xl {
+    font-size: 0.875rem !important;
+  }
+  .p-4 {
+    padding: 0.5rem !important;
+  }
+  .space-y-4 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  .gap-3 {
+    gap: 0.375rem !important;
+  }
+  .gap-2\.5 {
+    gap: 0.375rem !important;
+  }
+  .px-4 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .py-3 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .w-10 {
+    width: 1.5rem !important;
+  }
+  .h-10 {
+    height: 1.5rem !important;
+  }
+  .w-5 {
+    width: 1rem !important;
+  }
+  .h-5 {
+    height: 1rem !important;
+  }
+  .pl-10 {
+    padding-left: 1.5rem !important;
+  }
+  .pr-4 {
+    padding-right: 0.5rem !important;
+  }
+  .py-3 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .max-h-96 {
+    max-height: 8rem !important;
+  }
+  .max-h-64 {
+    max-height: 6rem !important;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 481px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .text-3xl {
+    font-size: 1.25rem !important;
+  }
+  .text-2xl {
+    font-size: 1.125rem !important;
+  }
+  .p-4 {
+    padding: 0.75rem !important;
+  }
+  .space-y-4 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  .gap-3 {
+    gap: 0.5rem !important;
+  }
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  .py-3 {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+  }
+  .w-10 {
+    width: 2rem !important;
+  }
+  .h-10 {
+    height: 2rem !important;
+  }
+  .max-h-96 {
+    max-height: 12rem !important;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 641px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+  .max-h-96 {
+    max-height: 16rem !important;
+  }
+}

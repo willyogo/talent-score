@@ -53,6 +53,17 @@ export const useIframeViewport = (): ViewportInfo => {
 
     const updateViewport = () => {
       const { width, height, effectiveBreakpoint } = getIframeDimensions();
+      
+      // Debug logging
+      console.log('Iframe Viewport Update:', {
+        isInIframe,
+        width,
+        height,
+        effectiveBreakpoint,
+        windowInnerWidth: window.innerWidth,
+        windowInnerHeight: window.innerHeight
+      });
+      
       setViewportInfo({
         isInIframe,
         iframeWidth: width,
@@ -61,8 +72,10 @@ export const useIframeViewport = (): ViewportInfo => {
       });
     };
 
-    // Initial update
-    updateViewport();
+    // Initial update with a small delay to ensure proper initialization
+    const initialTimeout = setTimeout(() => {
+      updateViewport();
+    }, 100);
 
     // Listen for resize events
     const handleResize = () => {
@@ -83,6 +96,7 @@ export const useIframeViewport = (): ViewportInfo => {
     }
 
     return () => {
+      clearTimeout(initialTimeout);
       window.removeEventListener('resize', handleResize);
       if (isInIframe) {
         try {
