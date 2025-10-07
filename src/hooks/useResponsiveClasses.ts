@@ -42,14 +42,14 @@ export const useResponsiveClasses = (): ResponsiveClasses => {
         subtitleSize: 'text-xs',
         bodySize: 'text-xs',
         scoreSize: 'text-base',
-        containerPadding: 'p-2',
-        sectionSpacing: 'space-y-2',
-        cardPadding: 'px-2 py-2',
-        searchInputPadding: 'pl-6 pr-2 py-2',
+        containerPadding: 'p-1',
+        sectionSpacing: 'space-y-1',
+        cardPadding: 'px-1.5 py-1.5',
+        searchInputPadding: 'pl-6 pr-2 py-1.5',
         searchIconSize: 'w-3.5 h-3.5',
         avatarSize: 'w-6 h-6',
         socialButtonSize: 'w-7 h-7',
-        maxHeight: 'max-h-32',
+        maxHeight: 'max-h-24',
         isCompact: true
       };
       
@@ -61,14 +61,14 @@ export const useResponsiveClasses = (): ResponsiveClasses => {
         subtitleSize: 'text-xs',
         bodySize: 'text-sm',
         scoreSize: 'text-lg',
-        containerPadding: 'p-3',
-        sectionSpacing: 'space-y-3',
-        cardPadding: 'px-3 py-2.5',
-        searchInputPadding: 'pl-8 pr-3 py-2.5',
+        containerPadding: 'p-2',
+        sectionSpacing: 'space-y-2',
+        cardPadding: 'px-2.5 py-2',
+        searchInputPadding: 'pl-8 pr-3 py-2',
         searchIconSize: 'w-4 h-4',
         avatarSize: 'w-8 h-8',
         socialButtonSize: 'w-8 h-8',
-        maxHeight: 'max-h-48',
+        maxHeight: 'max-h-40',
         isCompact: true
       };
       

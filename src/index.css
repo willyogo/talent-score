@@ -17,6 +17,62 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Force compact layout for small iframes */
+@media (max-width: 640px) {
+  #root {
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  /* Remove any default margins/padding that might push content down */
+  .min-h-screen {
+    min-height: auto !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Ensure content starts from the very top */
+  .flex.items-center.justify-center {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Remove any spacing that might push content down */
+  .space-y-1 > * + * {
+    margin-top: 0.25rem !important;
+  }
+  .space-y-2 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  .space-y-3 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  .space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  /* Reduce title margins for compact layout */
+  .text-center {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Ensure minimal padding on containers */
+  .p-1 {
+    padding: 0.25rem !important;
+  }
+  .p-2 {
+    padding: 0.5rem !important;
+  }
+  .p-3 {
+    padding: 0.75rem !important;
+  }
+  .p-4 {
+    padding: 1rem !important;
+  }
+}
+
 /* Responsive text scaling for very small screens */
 @media (max-width: 320px) {
   .text-xl {
@@ -43,6 +99,16 @@ img {
 
 /* Force iframe responsiveness with CSS media queries */
 @media (max-width: 480px) {
+  /* Remove min-height and center alignment for small iframes */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  .items-center {
+    align-items: flex-start !important;
+  }
+  .justify-center {
+    justify-content: flex-start !important;
+  }
   .grid-cols-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
@@ -109,6 +175,16 @@ img {
 }
 
 @media (max-width: 640px) and (min-width: 481px) {
+  /* Remove min-height and center alignment for small iframes */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  .items-center {
+    align-items: flex-start !important;
+  }
+  .justify-center {
+    justify-content: flex-start !important;
+  }
   .grid-cols-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
