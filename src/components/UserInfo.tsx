@@ -3,6 +3,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { Twitter, Github, Globe, Linkedin, RefreshCw } from 'lucide-react';
 import { fetchTalentProfile, TalentProfile, TalentAccount } from '../utils/api';
 import { getScoreWithCache } from '../lib/scoreCache';
+import { useResponsiveClasses } from '../hooks/useResponsiveClasses';
 
 const getLinkIcon = (source: string) => {
   const lowerSource = source.toLowerCase();
@@ -50,6 +51,7 @@ export default function UserInfo() {
   const [isFromCache, setIsFromCache] = useState(false);
   const [lastRefreshed, setLastRefreshed] = useState<string>('');
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const responsiveClasses = useResponsiveClasses();
 
   const loadProfile = async (forceRefresh: boolean = false) => {
     if (!fid) return;
@@ -98,16 +100,16 @@ export default function UserInfo() {
 
   if (loading) {
     return (
-      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center p-2 sm:p-4`}>
-        <div className={`${textClass} text-sm sm:text-base`}>Loading...</div>
+      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center ${responsiveClasses.containerPadding}`}>
+        <div className={`${textClass} ${responsiveClasses.bodySize}`}>Loading...</div>
       </div>
     );
   }
 
   if (error || !profile) {
     return (
-      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center p-2 sm:p-4`}>
-        <div className={`${textClass} text-sm sm:text-base`}>Profile not found</div>
+      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center ${responsiveClasses.containerPadding}`}>
+        <div className={`${textClass} ${responsiveClasses.bodySize}`}>Profile not found</div>
       </div>
     );
   }
@@ -179,19 +181,19 @@ export default function UserInfo() {
   const refreshTextClass = isDarkMode ? 'text-slate-400 hover:text-slate-300' : 'text-slate-600 hover:text-slate-700';
 
   return (
-    <div className={`w-full min-h-screen ${bgClass} p-2 sm:p-4 flex items-center justify-center`}>
+    <div className={`w-full min-h-screen ${bgClass} ${responsiveClasses.containerPadding} flex items-center justify-center`}>
       <div className="w-full max-w-2xl mx-auto">
-        <div className="space-y-2 sm:space-y-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+        <div className={responsiveClasses.sectionSpacing}>
+          <div className={`grid ${responsiveClasses.gridCols} ${responsiveClasses.gridGap}`}>
             {allScores.map((score) => (
               <div
                 key={score.slug}
-                className={`flex flex-col items-center justify-center ${cardBgClass} rounded-lg px-2 sm:px-4 py-2 sm:py-3 border`}
+                className={`flex flex-col items-center justify-center ${cardBgClass} rounded-lg ${responsiveClasses.cardPadding} border`}
               >
-                <div className={`text-xs ${cardTextClass} uppercase tracking-wide mb-1 text-center leading-tight`}>
+                <div className={`${responsiveClasses.subtitleSize} ${cardTextClass} uppercase tracking-wide mb-1 text-center leading-tight`}>
                   {formatScoreName(score.slug)}
                 </div>
-                <div className={`text-lg sm:text-xl lg:text-2xl font-bold ${getScoreColor(score.slug)}`}>
+                <div className={`${responsiveClasses.scoreSize} font-bold ${getScoreColor(score.slug)}`}>
                   {score.points}
                 </div>
               </div>
@@ -199,7 +201,7 @@ export default function UserInfo() {
           </div>
 
           {displayAccounts.length > 0 && (
-            <div className="flex gap-1.5 sm:gap-2 justify-center">
+            <div className={`flex ${responsiveClasses.gridGap} justify-center`}>
               {displayAccounts.slice(0, 4).map((account, index) => {
                 const Icon = getLinkIcon(account.source);
                 const url = getAccountUrl(account);
@@ -209,28 +211,28 @@ export default function UserInfo() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-8 h-8 sm:w-10 sm:h-10 ${cardBgClass} rounded-lg flex items-center justify-center ${hoverCardClass} transition-all group border`}
+                    className={`${responsiveClasses.socialButtonSize} ${cardBgClass} rounded-lg flex items-center justify-center ${hoverCardClass} transition-all group border`}
                     title={`${account.source}: ${account.username}`}
                   >
-                    <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${iconColorClass} transition-colors`} />
+                    <Icon className={`${responsiveClasses.searchIconSize} ${iconColorClass} transition-colors`} />
                   </a>
                 );
               })}
             </div>
           )}
 
-          <div className="flex items-center justify-between mt-2 sm:mt-4">
+          <div className={`flex items-center justify-between ${responsiveClasses.isCompact ? 'mt-2' : 'mt-4'}`}>
             <a
               href={`https://app.talentprotocol.com/${profile.passport_id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 sm:gap-2 ${textClass} ${linkHoverClass} transition-colors`}
+              className={`flex items-center ${responsiveClasses.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors`}
             >
-              <span className="text-xs">Powered by</span>
+              <span className={responsiveClasses.subtitleSize}>Powered by</span>
               <img
                 src={isDarkMode ? "/image.png" : "/talent protocol logo.png"}
                 alt="Talent Protocol"
-                className="h-3 sm:h-4"
+                className={responsiveClasses.isCompact ? 'h-3' : 'h-4'}
               />
             </a>
 
@@ -238,10 +240,10 @@ export default function UserInfo() {
               <button
                 onClick={handleRefresh}
                 disabled={isRefreshing}
-                className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 ${refreshBgClass} ${refreshTextClass} text-xs rounded border transition-colors disabled:cursor-not-allowed`}
+                className={`flex items-center ${responsiveClasses.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${responsiveClasses.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed`}
                 title={`Cached ${formatTimeAgo(lastRefreshed)}`}
               >
-                <RefreshCw className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`${responsiveClasses.isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${isRefreshing ? 'animate-spin' : ''}`} />
               </button>
             )}
           </div>
