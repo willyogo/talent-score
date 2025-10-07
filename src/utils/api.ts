@@ -9,6 +9,7 @@ export interface TalentProfile {
   builder_score: number;
   accounts: TalentAccount[];
   passport_id?: string;
+  user_id?: string;
   additional_scores?: Record<string, number>;
   rank_position?: number;
 }
@@ -92,6 +93,13 @@ export async function fetchTalentProfile(fid: string, _forceRefresh: boolean = f
       return null;
     }
 
+    console.log('Profile structure:', {
+      passport_id: profile.passport_id,
+      user_id: profile.user?.id,
+      id: profile.id,
+      user: profile.user
+    });
+
     const accounts = profile.accounts || [];
 
     // Add X account if x_username exists
@@ -148,6 +156,7 @@ export async function fetchTalentProfile(fid: string, _forceRefresh: boolean = f
       builder_score: builderScore,
       accounts: accounts,
       passport_id: profile.passport_id,
+      user_id: profile.user?.id || profile.id,
       additional_scores: additionalScores,
       rank_position: profile.rank_position,
     };
