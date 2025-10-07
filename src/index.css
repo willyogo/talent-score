@@ -24,22 +24,25 @@ html, body {
     height: auto !important;
   }
   
-  /* Remove any default margins/padding that might push content down */
+  /* Remove min-height only from main containers, not cards */
   .min-h-screen {
     min-height: auto !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
   }
   
-  /* Ensure content starts from the very top */
-  .flex.items-center.justify-center {
+  /* Only affect main page containers, not individual cards */
+  .min-h-screen.flex.items-center.justify-center {
     align-items: flex-start !important;
     justify-content: flex-start !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
   }
   
-  /* Remove any spacing that might push content down */
+  /* Keep card centering intact */
+  .flex.flex-col.items-center.justify-center {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Reduce spacing but keep some padding */
   .space-y-1 > * + * {
     margin-top: 0.25rem !important;
   }
@@ -58,18 +61,29 @@ html, body {
     margin-bottom: 0.5rem !important;
   }
   
-  /* Ensure minimal padding on containers */
+  /* Ensure some padding on containers */
   .p-1 {
-    padding: 0.25rem !important;
-  }
-  .p-2 {
     padding: 0.5rem !important;
   }
-  .p-3 {
+  .p-2 {
     padding: 0.75rem !important;
   }
-  .p-4 {
+  .p-3 {
     padding: 1rem !important;
+  }
+  .p-4 {
+    padding: 1.25rem !important;
+  }
+  
+  /* Ensure social icons are centered */
+  .flex.justify-center {
+    justify-content: center !important;
+  }
+  
+  /* Ensure footer alignment */
+  .flex.items-center.justify-between {
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 }
 
@@ -103,17 +117,23 @@ img {
   .min-h-screen {
     min-height: auto !important;
   }
-  .items-center {
+  
+  /* Only affect main page containers, not individual cards */
+  .min-h-screen.flex.items-center.justify-center {
     align-items: flex-start !important;
-  }
-  .justify-center {
     justify-content: flex-start !important;
   }
+  
+  /* Keep card centering intact */
+  .flex.flex-col.items-center.justify-center {
+    align-items: center !important;
+    justify-content: center !important;
+  }
   .grid-cols-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
   .grid-cols-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
   .text-3xl {
     font-size: 1.125rem !important;
@@ -179,17 +199,23 @@ img {
   .min-h-screen {
     min-height: auto !important;
   }
-  .items-center {
+  
+  /* Only affect main page containers, not individual cards */
+  .min-h-screen.flex.items-center.justify-center {
     align-items: flex-start !important;
-  }
-  .justify-center {
     justify-content: flex-start !important;
   }
+  
+  /* Keep card centering intact */
+  .flex.flex-col.items-center.justify-center {
+    align-items: center !important;
+    justify-content: center !important;
+  }
   .grid-cols-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
   .grid-cols-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
   .text-3xl {
     font-size: 1.25rem !important;

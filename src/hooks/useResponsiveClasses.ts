@@ -36,15 +36,15 @@ export const useResponsiveClasses = (): ResponsiveClasses => {
   switch (effectiveBreakpoint) {
     case 'xs':
       return {
-        gridCols: 'grid-cols-2',
-        gridGap: 'gap-1.5',
+        gridCols: 'grid-cols-3',
+        gridGap: 'gap-1',
         titleSize: 'text-lg',
         subtitleSize: 'text-xs',
         bodySize: 'text-xs',
-        scoreSize: 'text-base',
-        containerPadding: 'p-1',
-        sectionSpacing: 'space-y-1',
-        cardPadding: 'px-1.5 py-1.5',
+        scoreSize: 'text-sm',
+        containerPadding: 'p-2',
+        sectionSpacing: 'space-y-2',
+        cardPadding: 'px-1 py-1.5',
         searchInputPadding: 'pl-6 pr-2 py-1.5',
         searchIconSize: 'w-3.5 h-3.5',
         avatarSize: 'w-6 h-6',
@@ -55,15 +55,15 @@ export const useResponsiveClasses = (): ResponsiveClasses => {
       
     case 'sm':
       return {
-        gridCols: 'grid-cols-2',
-        gridGap: 'gap-2',
+        gridCols: 'grid-cols-3',
+        gridGap: 'gap-1.5',
         titleSize: 'text-xl',
         subtitleSize: 'text-xs',
         bodySize: 'text-sm',
-        scoreSize: 'text-lg',
-        containerPadding: 'p-2',
-        sectionSpacing: 'space-y-2',
-        cardPadding: 'px-2.5 py-2',
+        scoreSize: 'text-base',
+        containerPadding: 'p-3',
+        sectionSpacing: 'space-y-3',
+        cardPadding: 'px-1.5 py-2',
         searchInputPadding: 'pl-8 pr-3 py-2',
         searchIconSize: 'w-4 h-4',
         avatarSize: 'w-8 h-8',
