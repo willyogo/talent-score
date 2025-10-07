@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Embedding Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .iframe-container {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+        .small { height: 300px; }
+        .medium { height: 500px; }
+        .large { height: 700px; }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .embed-code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Talent Score App - Iframe Embedding Test</h1>
+        
+        <div class="test-section">
+            <h2>📋 Embedding Status</h2>
+            <div id="embed-status" class="status">
+                Testing iframe embedding capabilities...
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📱 Responsive Iframe Tests</h2>
+            <p>Test the app in different iframe sizes to verify responsiveness:</p>
+            
+            <h3>Small Mobile (320px)</h3>
+            <div class="iframe-container" style="width: 320px; margin: 0 auto;">
+                <iframe class="small" src="https://talent-score.vercel.app" title="Small iframe test"></iframe>
+            </div>
+            
+            <h3>Medium Mobile (480px)</h3>
+            <div class="iframe-container" style="width: 480px; margin: 0 auto;">
+                <iframe class="medium" src="https://talent-score.vercel.app" title="Medium iframe test"></iframe>
+            </div>
+            
+            <h3>Large Desktop (800px)</h3>
+            <div class="iframe-container" style="width: 800px; margin: 0 auto;">
+                <iframe class="large" src="https://talent-score.vercel.app" title="Large iframe test"></iframe>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔧 Embed Code for Your Website</h2>
+            <p>Use this code to embed the Talent Score app in your website:</p>
+            
+            <h3>Basic Embed (Responsive)</h3>
+            <div class="embed-code">
+&lt;iframe 
+  src="https://talent-score.vercel.app" 
+  width="100%" 
+  height="500" 
+  frameborder="0"
+  title="Talent Score App"
+  style="border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
+&gt;&lt;/iframe&gt;
+            </div>
+
+            <h3>Small Widget (300px height)</h3>
+            <div class="embed-code">
+&lt;iframe 
+  src="https://talent-score.vercel.app" 
+  width="100%" 
+  height="300" 
+  frameborder="0"
+  title="Talent Score Widget"
+  style="border-radius: 8px;"
+&gt;&lt;/iframe&gt;
+            </div>
+
+            <h3>With Dark Mode</h3>
+            <div class="embed-code">
+&lt;iframe 
+  src="https://talent-score.vercel.app/123456?dark=true" 
+  width="100%" 
+  height="500" 
+  frameborder="0"
+  title="Talent Score App (Dark Mode)"
+  style="border-radius: 8px;"
+&gt;&lt;/iframe&gt;
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>✅ Features to Test</h2>
+            <ul>
+                <li>✅ App loads successfully in iframe</li>
+                <li>✅ Search functionality works</li>
+                <li>✅ Navigation between pages works</li>
+                <li>✅ Responsive design adapts to iframe size</li>
+                <li>✅ No horizontal scrolling</li>
+                <li>✅ All interactive elements are accessible</li>
+                <li>✅ External links open in new tabs</li>
+                <li>✅ Dark mode parameter works</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🔍 Troubleshooting</h2>
+            <p>If the iframe doesn't load, check:</p>
+            <ul>
+                <li>Vercel deployment is live and accessible</li>
+                <li>Headers are properly configured in vercel.json</li>
+                <li>No CSP restrictions on the parent page</li>
+                <li>Network connectivity and firewall settings</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Test iframe embedding
+        function testEmbedding() {
+            const iframes = document.querySelectorAll('iframe');
+            let loadedCount = 0;
+            let totalIframes = iframes.length;
+            
+            iframes.forEach((iframe, index) => {
+                iframe.onload = function() {
+                    loadedCount++;
+                    console.log(`Iframe ${index + 1} loaded successfully`);
+                    
+                    if (loadedCount === totalIframes) {
+                        document.getElementById('embed-status').innerHTML = 
+                            '<strong>✅ SUCCESS:</strong> All iframes loaded successfully! The app is ready for embedding.';
+                        document.getElementById('embed-status').className = 'status success';
+                    }
+                };
+                
+                iframe.onerror = function() {
+                    document.getElementById('embed-status').innerHTML = 
+                        '<strong>❌ ERROR:</strong> Failed to load iframe. Check deployment and headers configuration.';
+                    document.getElementById('embed-status').className = 'status error';
+                };
+            });
+            
+            // Timeout after 10 seconds
+            setTimeout(() => {
+                if (loadedCount < totalIframes) {
+                    document.getElementById('embed-status').innerHTML = 
+                        '<strong>⚠️ WARNING:</strong> Some iframes may not have loaded. Check network connectivity.';
+                    document.getElementById('embed-status').className = 'status error';
+                }
+            }, 10000);
+        }
+        
+        // Start testing when page loads
+        window.onload = testEmbedding;
+    </script>
+</body>
+</html>
