@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure proper iframe compatibility */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Responsive text scaling for very small screens */
+@media (max-width: 320px) {
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal scroll in iframes */
+* {
+  box-sizing: border-box;
+}

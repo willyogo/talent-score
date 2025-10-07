@@ -5,7 +5,7 @@ import UserInfo from './components/UserInfo';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="min-h-screen w-full overflow-hidden">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/:fid" element={<UserInfo />} />
