@@ -63,7 +63,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center ${classes.containerPadding}`}>
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center ${classes.containerPadding}`}>
       <div className="w-full max-w-md mx-auto">
         <div className={`text-center ${classes.isCompact ? 'mb-4' : 'mb-8'}`}>
           <h1 className={`${classes.titleSize} font-bold text-white ${classes.isCompact ? 'mb-1' : 'mb-2'}`}>Talent Scores</h1>

@@ -105,7 +105,7 @@ export default function UserInfo() {
 
   if (loading) {
     return (
-      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center ${classes.containerPadding}`}>
+      <div className={`w-full h-screen ${bgClass} flex items-center justify-center ${classes.containerPadding}`}>
         <div className={`${textClass} ${classes.bodySize}`}>Loading...</div>
       </div>
     );
@@ -113,7 +113,7 @@ export default function UserInfo() {
 
   if (error || !profile) {
     return (
-      <div className={`w-full min-h-screen ${bgClass} flex items-center justify-center ${classes.containerPadding}`}>
+      <div className={`w-full h-screen ${bgClass} flex items-center justify-center ${classes.containerPadding}`}>
         <div className={`${textClass} ${classes.bodySize}`}>Profile not found</div>
       </div>
     );
@@ -186,7 +186,7 @@ export default function UserInfo() {
   const refreshTextClass = isDarkMode ? 'text-slate-400 hover:text-slate-300' : 'text-slate-600 hover:text-slate-700';
 
   return (
-    <div className={`w-full min-h-screen ${bgClass} ${classes.containerPadding} flex items-center justify-center`}>
+    <div className={`w-full h-screen ${bgClass} ${classes.containerPadding} flex items-center justify-center`}>
       <div className="w-full max-w-2xl mx-auto">
         <div className={classes.sectionSpacing}>
           <div className={`grid ${classes.gridCols} ${classes.gridGap}`}>
