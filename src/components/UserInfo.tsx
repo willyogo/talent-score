@@ -123,6 +123,9 @@ export default function UserInfo() {
     account => ['x_twitter', 'twitter', 'github', 'linkedin', 'lens'].includes(account.source.toLowerCase())
   );
 
+  console.log('Profile accounts:', profile.accounts);
+  console.log('Display accounts:', displayAccounts);
+
   const formatTimeAgo = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -171,7 +174,7 @@ export default function UserInfo() {
   const creatorScore = profile.additional_scores?.creator_score;
 
   const allScores = [
-    ...(profile.builder_score > 0 ? [{ slug: 'builder_score', points: profile.builder_score }] : []),
+    ...(profile.builder_score >= 2 ? [{ slug: 'builder_score', points: profile.builder_score }] : []),
     ...(profile.talent_score > 0 ? [{ slug: 'talent_score', points: profile.talent_score }] : []),
     ...(creatorScore ? [{ slug: 'creator_score', points: creatorScore }] : []),
     ...(profile.rank_position ? [{ slug: 'rank_position', points: profile.rank_position }] : []),
