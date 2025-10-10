@@ -206,7 +206,7 @@ export default function UserInfo() {
           </div>
 
           {displayAccounts.length > 0 && (
-            <div className={`flex ${classes.gridGap} justify-center`}>
+            <div className={`grid ${classes.gridCols} ${classes.gridGap} justify-items-center`}>
               {displayAccounts.slice(0, 4).map((account, index) => {
                 const Icon = getLinkIcon(account.source);
                 const url = getAccountUrl(account);
@@ -226,12 +226,12 @@ export default function UserInfo() {
             </div>
           )}
 
-          <div className={`flex items-center justify-between ${classes.isCompact ? 'mt-2' : 'mt-4'}`}>
+          <div className={`grid ${classes.gridCols} ${classes.gridGap} items-center ${classes.isCompact ? 'mt-2' : 'mt-4'}`}>
             <a
               href={`https://app.talentprotocol.com/${profile.user_id || profile.passport_id || 'unknown'}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center ${classes.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors`}
+              className={`flex items-center ${classes.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors justify-self-start`}
             >
               <span className={classes.subtitleSize}>Powered by</span>
               <img
@@ -245,7 +245,7 @@ export default function UserInfo() {
               <button
                 onClick={handleRefresh}
                 disabled={isRefreshing}
-                className={`flex items-center ${classes.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${classes.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed`}
+                className={`flex items-center ${classes.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${classes.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed justify-self-end`}
                 title={`Cached ${formatTimeAgo(lastRefreshed)}`}
               >
                 <RefreshCw className={`${classes.isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${isRefreshing ? 'animate-spin' : ''}`} />
