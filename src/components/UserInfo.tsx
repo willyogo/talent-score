@@ -149,20 +149,20 @@ export default function UserInfo() {
       const colorMap: Record<string, string> = {
         builder_score: 'text-emerald-400',
         talent_score: 'text-blue-400',
-        creator_score: 'text-amber-400',
+        creator_score: 'text-blue-400',
         base_builder_score: 'text-sky-400',
         base200_score: 'text-violet-400',
-        rank_position: 'text-pink-400',
+        rank_position: 'text-purple-400',
       };
       return colorMap[slug] || 'text-slate-300';
     } else {
       const colorMap: Record<string, string> = {
         builder_score: 'text-emerald-600',
         talent_score: 'text-blue-600',
-        creator_score: 'text-amber-600',
+        creator_score: 'text-blue-600',
         base_builder_score: 'text-sky-600',
         base200_score: 'text-violet-600',
-        rank_position: 'text-pink-600',
+        rank_position: 'text-purple-600',
       };
       return colorMap[slug] || 'text-slate-700';
     }
