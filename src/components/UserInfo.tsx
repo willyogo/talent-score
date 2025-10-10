@@ -206,23 +206,25 @@ export default function UserInfo() {
           </div>
 
           {displayAccounts.length > 0 && (
-            <div className={`grid ${classes.gridCols} ${classes.gridGap} justify-items-center`}>
-              {displayAccounts.slice(0, 4).map((account, index) => {
-                const Icon = getLinkIcon(account.source);
-                const url = getAccountUrl(account);
-                return (
-                  <a
-                    key={index}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${classes.socialButtonSize} ${cardBgClass} rounded-lg flex items-center justify-center ${hoverCardClass} transition-all group border`}
-                    title={`${account.source}: ${account.username}`}
-                  >
-                    <Icon className={`${classes.searchIconSize} ${iconColorClass} transition-colors`} />
-                  </a>
-                );
-              })}
+            <div className="flex justify-center">
+              <div className={`flex ${classes.gridGap}`}>
+                {displayAccounts.slice(0, 4).map((account, index) => {
+                  const Icon = getLinkIcon(account.source);
+                  const url = getAccountUrl(account);
+                  return (
+                    <a
+                      key={index}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${classes.socialButtonSize} ${cardBgClass} rounded-lg flex items-center justify-center ${hoverCardClass} transition-all group border`}
+                      title={`${account.source}: ${account.username}`}
+                    >
+                      <Icon className={`${classes.searchIconSize} ${iconColorClass} transition-colors`} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -231,7 +233,7 @@ export default function UserInfo() {
               href={`https://app.talentprotocol.com/${profile.user_id || profile.passport_id || 'unknown'}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center ${classes.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors justify-self-start`}
+              className={`flex items-center ${classes.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors`}
             >
               <span className={classes.subtitleSize}>Powered by</span>
               <img
@@ -241,11 +243,13 @@ export default function UserInfo() {
               />
             </a>
 
+            <div></div>
+
             {isFromCache && (
               <button
                 onClick={handleRefresh}
                 disabled={isRefreshing}
-                className={`flex items-center ${classes.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${classes.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed justify-self-end`}
+                className={`flex items-center ${classes.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${classes.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed`}
                 title={`Cached ${formatTimeAgo(lastRefreshed)}`}
               >
                 <RefreshCw className={`${classes.isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${isRefreshing ? 'animate-spin' : ''}`} />
