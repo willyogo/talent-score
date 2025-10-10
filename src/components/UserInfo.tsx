@@ -206,7 +206,8 @@ export default function UserInfo() {
           </div>
 
           {displayAccounts.length > 0 && (
-            <div className="flex justify-center">
+            <div className={`grid ${classes.gridCols} ${classes.gridGap} justify-items-center`}>
+              <div></div>
               <div className={`flex ${classes.gridGap}`}>
                 {displayAccounts.slice(0, 4).map((account, index) => {
                   const Icon = getLinkIcon(account.source);
@@ -225,6 +226,7 @@ export default function UserInfo() {
                   );
                 })}
               </div>
+              <div></div>
             </div>
           )}
 
@@ -246,14 +248,16 @@ export default function UserInfo() {
             <div></div>
 
             {isFromCache && (
-              <button
-                onClick={handleRefresh}
-                disabled={isRefreshing}
-                className={`flex items-center ${classes.isCompact ? 'gap-1 px-2 py-1' : 'gap-1.5 px-2.5 py-1.5'} ${refreshBgClass} ${refreshTextClass} ${classes.subtitleSize} rounded border transition-colors disabled:cursor-not-allowed`}
-                title={`Cached ${formatTimeAgo(lastRefreshed)}`}
-              >
-                <RefreshCw className={`${classes.isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${isRefreshing ? 'animate-spin' : ''}`} />
-              </button>
+              <div className="flex justify-end">
+                <button
+                  onClick={handleRefresh}
+                  disabled={isRefreshing}
+                  className={`${classes.socialButtonSize} flex items-center justify-center ${refreshBgClass} ${refreshTextClass} rounded border transition-colors disabled:cursor-not-allowed`}
+                  title={`Cached ${formatTimeAgo(lastRefreshed)}`}
+                >
+                  <RefreshCw className={`${classes.isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${isRefreshing ? 'animate-spin' : ''}`} />
+                </button>
+              </div>
             )}
           </div>
         </div>
