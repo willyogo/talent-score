@@ -228,7 +228,7 @@ export default function UserInfo() {
 
           <div className={`flex items-center justify-between ${classes.isCompact ? 'mt-2' : 'mt-4'}`}>
             <a
-              href={`https://app.talentprotocol.com/${profile.user_id || profile.passport_id}`}
+              href={`https://app.talentprotocol.com/${profile.user_id || profile.passport_id || 'unknown'}`}
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center ${classes.isCompact ? 'gap-1' : 'gap-2'} ${textClass} ${linkHoverClass} transition-colors`}

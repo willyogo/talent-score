@@ -97,7 +97,8 @@ export async function fetchTalentProfile(fid: string, _forceRefresh: boolean = f
       passport_id: profile.passport_id,
       user_id: profile.user?.id,
       id: profile.id,
-      user: profile.user
+      user: profile.user,
+      'user.id': profile.user?.id
     });
 
     const accounts = profile.accounts || [];
@@ -156,7 +157,7 @@ export async function fetchTalentProfile(fid: string, _forceRefresh: boolean = f
       builder_score: builderScore,
       accounts: accounts,
       passport_id: profile.passport_id,
-      user_id: profile.user?.id || profile.id,
+      user_id: profile.user?.id,
       additional_scores: additionalScores,
       rank_position: profile.rank_position,
     };
